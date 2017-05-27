@@ -1,8 +1,11 @@
-defmodule ElixirRaft.ServerData do
-  # Data for a server
+defmodule ElixirRaft.ServerState do
+  # State for a server
   # TODO: Separate persistent data from state-dependent volatile
   # data.
   defstruct(
+    # Can be follower, candidate, or leader
+    role: :follower,
+
     # Last term the sever has seen
     current_term: 0,
 
