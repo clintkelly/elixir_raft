@@ -21,5 +21,10 @@ defmodule ElixirRaft.ServerState do
 
     # Index of highest log entry applied to state machine
     last_applied: 0,
+
+    # Pointer to function used to set election timeouts
+    # (Necessary for dependency injection in testing)
+    # See http://blog.plataformatec.com.br/2015/10/mocks-and-explicit-contracts/ 
+    set_timeout_func: :none,
   )
 end
