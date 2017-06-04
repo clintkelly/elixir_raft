@@ -26,5 +26,9 @@ defmodule ElixirRaft.ServerState do
     # (Necessary for dependency injection in testing)
     # See http://blog.plataformatec.com.br/2015/10/mocks-and-explicit-contracts/ 
     set_timeout_func: :none,
+
+    # Keep track of the index of the most recent election timeout. Ignore any
+    # that are not the latest (instead of just canceling).
+    most_recent_election_timeout_index: -1,
   )
 end
